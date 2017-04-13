@@ -29,6 +29,7 @@ import android.widget.Toast;
 import com.mozartalouis.stockhawk.R;
 import com.mozartalouis.stockhawk.adapters.StockAdapter;
 import com.mozartalouis.stockhawk.data.Contract;
+import com.mozartalouis.stockhawk.ui.dialogs.AddStockDialog;
 import com.mozartalouis.stockhawk.utils.PrefUtils;
 import com.mozartalouis.stockhawk.sync.QuoteSyncJob;
 import com.mozartalouis.stockhawk.utils.NetworkUtils;
@@ -187,9 +188,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onStockClick(String symbol) {
-        //final Intent intent = new Intent(this, DetailActivity.class);
-        //intent.setData(Contract.Quote.makeUriForStock(symbol));
-        //startActivity(intent);
+        final Intent intent = new Intent(this, DetailActivity.class);
+        intent.setData(Contract.Quote.makeUriForStock(symbol));
+        startActivity(intent);
     }
 
     /**

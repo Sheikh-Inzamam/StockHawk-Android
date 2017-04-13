@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.mozartalouis.stockhawk">
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.mozartalouis.stockhawk">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.Manifest.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.Manifest.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
-        android:name="com.mozartalouis.stockhawk.StockHawkApp"
+        android:name=".StockHawkApp"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,49 +17,59 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name="com.mozartalouis.stockhawk.ui.MainActivity"
+            android:name=".ui.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
         <!-- Providers -->
         <provider
-            android:name="com.mozartalouis.stockhawk.data.StockProvider"
+            android:name=".data.StockProvider"
             android:authorities="com.mozartalouis.stockhawk"
-            android:exported="false" />
+            android:exported="false"/>
 
         <!-- Services -->
         <service
-            android:name="com.mozartalouis.stockhawk.sync.QuoteIntentService"
-            android:exported="false" />
-
+            android:name=".sync.QuoteIntentService"
+            android:exported="false"/>
         <service
-            android:name="com.mozartalouis.stockhawk.sync.QuoteJobService"
+            android:name=".sync.QuoteJobService"
             android:enabled="true"
             android:exported="true"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
 
-        <!-- Widget Specific Content-->
+        <!-- Widget Specific Content -->
         <receiver
-            android:name="com.mozartalouis.stockhawk.widget.WidgetProvider"
+            android:name=".widget.WidgetProvider"
             android:label="Stock Hawk Widget">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="com.mozartalouis.stockhawk.ACTION_DATA_UPDATED" />
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.mozartalouis.stockhawk.ACTION_DATA_UPDATED"/>
             </intent-filter>
+
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/widget_info" />
+                android:resource="@xml/widget_info"/>
         </receiver>
 
         <service
-            android:name="com.mozartalouis.stockhawk.widget.WidgetService"
+            android:name=".widget.WidgetService"
             android:exported="false"
-            android:permission="android.permission.BIND_REMOTEVIEWS" />
+            android:permission="android.permission.BIND_REMOTEVIEWS"/>
 
+        <activity
+            android:name=".ui.DetailActivity"
+            android:label="@string/title_activity_detail"
+            android:parentActivityName=".ui.MainActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mozartalouis.stockhawk.ui.MainActivity"/>
+        </activity>
     </application>
 
 </manifest>

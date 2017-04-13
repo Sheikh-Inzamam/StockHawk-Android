@@ -1,4 +1,4 @@
-package com.mozartalouis.stockhawk.ui;
+package com.mozartalouis.stockhawk.ui.dialogs;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

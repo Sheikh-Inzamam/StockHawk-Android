@@ -44,5 +44,6 @@
     <string name="default_stocks_apple" translatable="false">AAPL</string>
     <string name="default_stocks_microsoft" translatable="false">MSFT</string>
     <string name="default_stocks_facebook" translatable="false">FB</string>
+    <string name="title_activity_detail">DetailActivity</string>
 
 </resources>
