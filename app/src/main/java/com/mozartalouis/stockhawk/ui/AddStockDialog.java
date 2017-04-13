@@ -16,27 +16,23 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.mozartalouis.stockhawk.R;
+import com.mozartalouis.stockhawk.ui.MainActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
 public class AddStockDialog extends DialogFragment {
 
-    @SuppressWarnings("WeakerAccess")
     @BindView(R.id.dialog_stock)
-    EditText stock;
+    public EditText stock;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
         LayoutInflater inflater = LayoutInflater.from(getActivity());
-        @SuppressLint("InflateParams") View custom = inflater.inflate(R.layout.add_stock_dialog, null);
+        @SuppressLint("InflateParams") View custom = inflater.inflate(R.layout.dialog_add_stock, null);
 
         ButterKnife.bind(this, custom);
-
         stock.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -44,8 +40,8 @@ public class AddStockDialog extends DialogFragment {
                 return true;
             }
         });
-        builder.setView(custom);
 
+        builder.setView(custom);
         builder.setMessage(getString(R.string.dialog_title));
         builder.setPositiveButton(getString(R.string.dialog_add),
                 new DialogInterface.OnClickListener() {
@@ -56,12 +52,10 @@ public class AddStockDialog extends DialogFragment {
         builder.setNegativeButton(getString(R.string.dialog_cancel), null);
 
         Dialog dialog = builder.create();
-
         Window window = dialog.getWindow();
         if (window != null) {
             window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
         }
-
         return dialog;
     }
 
@@ -72,6 +66,4 @@ public class AddStockDialog extends DialogFragment {
         }
         dismissAllowingStateLoss();
     }
-
-
 }

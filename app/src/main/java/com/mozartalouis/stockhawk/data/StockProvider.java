@@ -15,7 +15,6 @@ public class StockProvider extends ContentProvider {
 
     private static final int QUOTE = 100;
     private static final int QUOTE_FOR_SYMBOL = 101;
-
     private static final UriMatcher uriMatcher = buildUriMatcher();
 
     private DbHelper dbHelper;
@@ -26,7 +25,6 @@ public class StockProvider extends ContentProvider {
         matcher.addURI(Contract.AUTHORITY, Contract.PATH_QUOTE_WITH_SYMBOL, QUOTE_FOR_SYMBOL);
         return matcher;
     }
-
 
     @Override
     public boolean onCreate() {
@@ -69,11 +67,10 @@ public class StockProvider extends ContentProvider {
                 throw new UnsupportedOperationException("Unknown URI:" + uri);
         }
 
-        Context context = getContext();
-        if (context != null){
+        final Context context = getContext();
+        if (context != null) {
             returnCursor.setNotificationUri(context.getContentResolver(), uri);
         }
-
         return returnCursor;
     }
 
@@ -96,14 +93,14 @@ public class StockProvider extends ContentProvider {
                         null,
                         values
                 );
-                returnUri = Contract.Quote.URI;
+                returnUri = Contract.Quote.uri;
                 break;
             default:
                 throw new UnsupportedOperationException("Unknown URI:" + uri);
         }
 
-        Context context = getContext();
-        if (context != null){
+        final Context context = getContext();
+        if (context != null) {
             context.getContentResolver().notifyChange(uri, null);
         }
 
@@ -115,9 +112,9 @@ public class StockProvider extends ContentProvider {
         final SQLiteDatabase db = dbHelper.getWritableDatabase();
         int rowsDeleted;
 
-        if (null == selection) {
+        if (selection == null)
             selection = "1";
-        }
+
         switch (uriMatcher.match(uri)) {
             case QUOTE:
                 rowsDeleted = db.delete(
@@ -125,9 +122,7 @@ public class StockProvider extends ContentProvider {
                         selection,
                         selectionArgs
                 );
-
                 break;
-
             case QUOTE_FOR_SYMBOL:
                 String symbol = Contract.Quote.getStockFromUri(uri);
                 rowsDeleted = db.delete(
@@ -141,8 +136,8 @@ public class StockProvider extends ContentProvider {
         }
 
         if (rowsDeleted != 0) {
-            Context context = getContext();
-            if (context != null){
+            final Context context = getContext();
+            if (context != null) {
                 context.getContentResolver().notifyChange(uri, null);
             }
         }
@@ -157,7 +152,6 @@ public class StockProvider extends ContentProvider {
 
     @Override
     public int bulkInsert(@NonNull Uri uri, @NonNull ContentValues[] values) {
-
         final SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         switch (uriMatcher.match(uri)) {
@@ -177,16 +171,14 @@ public class StockProvider extends ContentProvider {
                     db.endTransaction();
                 }
 
-                Context context = getContext();
+
+                final Context context = getContext();
                 if (context != null) {
                     context.getContentResolver().notifyChange(uri, null);
                 }
-
                 return returnCount;
             default:
                 return super.bulkInsert(uri, values);
         }
-
-
     }
 }

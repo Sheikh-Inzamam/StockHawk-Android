@@ -1,3 +1,9 @@
 <resources>
-    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="toolbar_elevation">4dp</dimen>
+
+    <dimen name="widget_width">220dp</dimen>
+    <dimen name="widget_height">180dp</dimen>
+    <dimen name="widget_resize_width">220dp</dimen>
+    <dimen name="widget_resize_height">120dp</dimen>
+    <dimen name="widget_margin">4dp</dimen>
 </resources>
