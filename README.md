@@ -5,6 +5,23 @@ Stock Hawk is a stock information application that allows you to add, remove and
 
 ## Screenshots
 
+## APIs Used
+ * Yahoo Finance API
+ 
+## Libraries Used
+ * MPAndroidChart
+ * OpenCSV
+ * Butterknife
+ * Guava
+
+## Android Core SDK
+ * Widgets
+ * AsyncTasks
+ * Cursors
+ * Loaders
+ * Services
+ * Content Providers
+ 
 ## Udacity Nanodegree Program
 This project is in partial fulfilment of the Udacity Android Developer Nanodegree. Project #3
  * Description - https://www.udacity.com/course/android-developer-nanodegree-by-google--nd801#

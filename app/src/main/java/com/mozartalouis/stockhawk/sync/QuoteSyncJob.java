@@ -195,26 +195,4 @@ public final class QuoteSyncJob {
             }
         });
     }
-
-    private static String getHistory(Stock stock, Calendar from, Calendar to, Interval interval) throws IOException {
-        List<HistoricalQuote> history = new ArrayList<>();
-
-        if (interval.equals(Interval.DAILY)) {
-            while (history.size() < 5) {
-                history = stock.getHistory(from, to, interval);
-                from.add(Calendar.DAY_OF_YEAR, -1);
-            }
-        } else {
-            history = stock.getHistory(from, to, interval);
-        }
-
-        StringBuilder historyBuilder = new StringBuilder();
-        for (HistoricalQuote it : history) {
-            historyBuilder.append(it.getDate().getTimeInMillis());
-            historyBuilder.append(":");
-            historyBuilder.append(it.getClose());
-            historyBuilder.append("$");
-        }
-        return historyBuilder.toString();
-    }
 }
