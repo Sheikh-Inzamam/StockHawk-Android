@@ -1,6 +1,6 @@
-# STOCK HAWK
+# <img src="https://github.com/mozartalouis/StockHawk-Android/raw/master/readme/icon.png" width="128"> STOCK HAWK
 
-### Screenshots
+## Screenshots
 
 ## Udacity Nanodegree Program
 This project is in partial fulfilment of the Udacity Android Developer Nanodegree. Project #3
