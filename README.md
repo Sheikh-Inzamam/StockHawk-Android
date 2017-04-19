@@ -1,4 +1,4 @@
-# <img src="https://github.com/mozartalouis/StockHawk-Android/raw/master/readme/icon.png" width="128"> STOCK HAWK
+# <img src="https://github.com/mozartalouis/StockHawk-Android/raw/master/readme/icon.png" width="100"> Stock Hawk
 
 ## Screenshots
 
