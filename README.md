@@ -1,4 +1,7 @@
-# <img src="https://github.com/mozartalouis/StockHawk-Android/raw/master/readme/icon.png" width="100"> Stock Hawk
+# <img src="https://github.com/mozartalouis/StockHawk-Android/raw/master/readme/icon.png" width="128"> Stock Hawk
+
+## Description
+Stock Hawk is a stock information application that allows you to add, remove and view stocks in a graph like format. This application focuses much more on data ingestion, services, asynctasks and cursor loaders more than anything else.
 
 ## Screenshots
 
